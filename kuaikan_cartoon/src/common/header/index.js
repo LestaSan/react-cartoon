@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { actionCreators } from './store';
 import {
@@ -14,44 +14,48 @@ import {
   Login
 } from './style.js'
 
-const getFollowInfo = (show) => {
-  if(show) {
+class Header extends Component {
+  render() {
+    const { MouseOver, handleFollowInfoHide, handleFollowInfoShow } = this.props;
     return (
-      <FollowInfo>
-        <Img/>
-        <LoginItem>
-          <LoginContent>未登录</LoginContent>
-          <LoginContent>登录后即可关注喜欢的漫画</LoginContent>
-        </LoginItem>
-        <Login>登录</Login>
-      </FollowInfo>
-    )
+      <HeaderWrapper>
+        <Logo>
+          <LogoImg/>
+        </Logo>
+        <Nav>
+          <NavItem className="left active common">首页</NavItem>
+          <NavItem className="left common" >APP下载</NavItem>
+          <NavItem className="left common">作者中心</NavItem>
+          <NavItem 
+            className={MouseOver ? 'right follow' : 'right'}
+            onMouseOver={() => {handleFollowInfoShow(this.icon)}}
+            onMouseOut={() => {handleFollowInfoHide(this.icon)}}
+          >
+            关注
+            <i ref={(icon) => {this.icon = icon}} className="iconfont">&#xe644;</i>
+            { this.getFollowInfo(MouseOver) }
+          </NavItem>
+          
+          <NavItem className="right common">注册</NavItem>
+          <NavItem className="right common">登录</NavItem>
+        </Nav>
+      </HeaderWrapper>
+    );
   }
-}
-
-const Header = (props) => {
-  return (
-    <HeaderWrapper>
-      <Logo>
-        <LogoImg/>
-      </Logo>
-      <Nav>
-        <NavItem className="left active common">首页</NavItem>
-        <NavItem className="left common" >APP下载</NavItem>
-        <NavItem className="left common">作者中心</NavItem>
-        <NavItem 
-          className={props.MouseOver ? 'right follow' : 'right'}
-          onMouseOver={props.handleFollowInfoShow}
-          onMouseOut={props.handleFollowInfoHide}
-        >
-          关注
-          { getFollowInfo(props.MouseOver) }
-        </NavItem>
-        <NavItem className="right common">注册</NavItem>
-        <NavItem className="right common">登录</NavItem>
-      </Nav>
-    </HeaderWrapper>
-  );
+  getFollowInfo(show) {
+    if(show) {
+      return (
+        <FollowInfo>
+          <Img/>
+          <LoginItem>
+            <LoginContent>未登录</LoginContent>
+            <LoginContent>登录后即可关注喜欢的漫画</LoginContent>
+          </LoginItem>
+          <Login>登录</Login>
+        </FollowInfo>
+      )
+    }
+  }
 }
 
 
@@ -61,11 +65,14 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    handleFollowInfoShow() {
+    handleFollowInfoShow(icon) {
+      icon.style.transform = 'rotate(180deg)';
+      // console.log(icon.style.transform)
       const action = actionCreators.FollowInfoShow;
       dispatch(action)
     },
-    handleFollowInfoHide() {
+    handleFollowInfoHide(icon) {
+      icon.style.transform = 'rotate(0deg)';
       const action = actionCreators.FollowInfoHide;
       dispatch(action)
     }

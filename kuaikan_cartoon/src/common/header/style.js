@@ -43,6 +43,16 @@ export const NavItem = styled.div`
   padding: 0 12px;
   font-size: 14px;
   color: #fff;
+  .iconfont {
+    display: block;
+    float: right;
+    font-size: 15px;
+    margin-left: 5px;
+    color: #878787;
+    transition: all .2s ease-in;
+    // transform: rotate(180deg);
+    transform-origin: center center
+  }
   &.common {
     &:hover {
       color: #ffd900;
