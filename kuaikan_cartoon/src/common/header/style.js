@@ -46,10 +46,10 @@ export const NavItem = styled.div`
   .iconfont {
     display: block;
     float: right;
-    font-size: 15px;
-    margin-left: 5px;
+    font-size: 16px;
+    margin-left: 6px;
     color: #878787;
-    transition: all .2s ease-in;
+    transition: all .3s ease-in;
     // transform: rotate(180deg);
     transform-origin: center center
   }

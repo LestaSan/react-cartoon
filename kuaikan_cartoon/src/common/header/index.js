@@ -33,7 +33,7 @@ class Header extends Component {
           >
             关注
             <i ref={(icon) => {this.icon = icon}} className="iconfont">&#xe644;</i>
-            { this.getFollowInfo(MouseOver) }
+            { this.getFollowInfo() }
           </NavItem>
           
           <NavItem className="right common">注册</NavItem>
@@ -42,10 +42,14 @@ class Header extends Component {
       </HeaderWrapper>
     );
   }
-  getFollowInfo(show) {
-    if(show) {
+  getFollowInfo() {
+    const { MouseOver, IsMouseEnter, handleMouseEnter, handleMouseLeave } = this.props;
+    if(MouseOver || IsMouseEnter) {
       return (
-        <FollowInfo>
+        <FollowInfo 
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+        >
           <Img/>
           <LoginItem>
             <LoginContent>未登录</LoginContent>
@@ -60,7 +64,8 @@ class Header extends Component {
 
 
 const mapStateToProps = (state) => ({
-  MouseOver: state.get('header').get('MouseOver')
+  MouseOver: state.get('header').get('MouseOver'),
+  IsMouseEnter: state.getIn(['header','IsMouseEnter'])
 })
 
 const mapDispatchToProps = (dispatch) => {
@@ -74,6 +79,14 @@ const mapDispatchToProps = (dispatch) => {
     handleFollowInfoHide(icon) {
       icon.style.transform = 'rotate(0deg)';
       const action = actionCreators.FollowInfoHide;
+      dispatch(action)
+    },
+    handleMouseEnter() {
+      const action = actionCreators.MouseEnter();
+      dispatch(action)
+    },
+    handleMouseLeave() {
+      const action = actionCreators.MouseLeave();
       dispatch(action)
     }
   }
