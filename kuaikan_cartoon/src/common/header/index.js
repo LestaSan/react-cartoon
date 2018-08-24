@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import { actionCreators } from './store';
 import {
@@ -7,13 +7,24 @@ import {
   LogoImg,
   Nav,
   NavItem,
-  FollowInfo
+  FollowInfo,
+  Img,
+  LoginContent,
+  LoginItem,
+  Login
 } from './style.js'
 
 const getFollowInfo = (show) => {
   if(show) {
     return (
-      <FollowInfo></FollowInfo>
+      <FollowInfo>
+        <Img/>
+        <LoginItem>
+          <LoginContent>未登录</LoginContent>
+          <LoginContent>登录后即可关注喜欢的漫画</LoginContent>
+        </LoginItem>
+        <Login>登录</Login>
+      </FollowInfo>
     )
   }
 }

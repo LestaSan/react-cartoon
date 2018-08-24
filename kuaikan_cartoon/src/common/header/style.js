@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import LogoPic from '../../statics/logo.png';
+import LoginPic from '../../statics/login.png';
 
 export const HeaderWrapper = styled.div`
   position: relative;
@@ -35,7 +36,6 @@ export const Nav = styled.div`
   padding-right: 60px;
   box-sizing: border-box;
   margin: 0 auto;
-  // background: red;
 `
 
 export const NavItem = styled.div`
@@ -74,3 +74,42 @@ export const FollowInfo = styled.div`
   overflow: hidden;
   background: #333;
 ` 
+
+export const Img = styled.div`
+  position: absolute
+  top: 125px;
+  left: 168px;
+  width: 96px;
+  height: 96px;
+  background: url(${LoginPic});
+`
+
+export const LoginItem = styled.div`
+  position: absolute;
+  top: 214px;
+  left: 120px;
+`
+
+export const LoginContent = styled.div`
+  line-height: 55px;
+  padding: 0 12px;
+  font-size: 14px;
+  color: #fff;
+  text-align: center;
+`
+
+export const Login = styled.a.attrs({
+  href: '/'
+})`
+  position: absolute;
+  left: 116px;
+  bottom: 140px;
+  width: 200px;
+  height: 44px;
+  color: #333;
+  background: #fff;
+  font-size: 14px;
+  text-align: center;
+  line-height: 44px;
+  text-decoration: none
+`
