@@ -1,0 +1,2 @@
+export const FOLLOW_INFO_SHOW = 'FOLLOW_INFO_SHOW';
+export const FOLLOW_INFO_HIDE = 'FOLLOW_INFO_HIDE';

@@ -43,6 +43,16 @@ export const NavItem = styled.div`
   padding: 0 12px;
   font-size: 14px;
   color: #fff;
+  &.common {
+    &:hover {
+      color: #ffd900;
+    }
+  }
+  &.follow {
+    &:hover {
+      background: #333
+    }
+  }
   &.left {
     float: left;
   }
@@ -52,4 +62,15 @@ export const NavItem = styled.div`
   &.active {
     color: #ffd900;
   }
+  
 `
+
+export const FollowInfo = styled.div`
+  position: absolute;
+  top: 54px;
+  right: 30px;
+  width: 430px;
+  height: 510px;
+  overflow: hidden;
+  background: #333;
+` 
