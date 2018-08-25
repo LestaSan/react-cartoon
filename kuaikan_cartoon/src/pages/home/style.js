@@ -16,6 +16,8 @@ export const HomeContainer = styled.div`
 
 export const NavSearch = styled.div`
   position: relative;
+  padding-bottom: 30px;
+  box-sizing: border-box;
   height: 100px;
   width: 1140px;
   margin: 0 auto;
