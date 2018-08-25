@@ -83,6 +83,7 @@ export const FollowInfo = styled.div`
   height: 510px;
   overflow: hidden;
   background: #333;
+  z-index: 999;
 ` 
 
 export const Img = styled.div`
