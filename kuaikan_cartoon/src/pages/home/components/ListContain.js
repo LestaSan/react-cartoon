@@ -13,6 +13,7 @@ class ListContain extends Component {
             <ListItem key={item.get("id")}>
               <PicBox>
                 <div className="pic-container">
+                  <p className="high-light"></p>
                   <img className="item-pic" src={item.get("imgUrl")} alt="" />
                 </div>
                 <p className="cartoon-title">{item.get("title")}</p>

@@ -50,7 +50,6 @@ export const NavItem = styled.div`
     margin-left: 6px;
     color: #878787;
     transition: all .3s ease-in;
-    // transform: rotate(180deg);
     transform-origin: center center
   }
   &.common {

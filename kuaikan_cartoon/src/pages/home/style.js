@@ -25,11 +25,12 @@ export const NavSearch = styled.div`
   .s-img {
     position: absolute;
     left: 100px;
-    top: 14px;
+    top: 16px;
     height: 100px;
-    width: 100%;
+    width: 80%;
     background: url(${BackPic_2});
     background-repeat: no-repeat;
+    background-size: contain;
   }  
   .search {
     position: relative;
@@ -130,14 +131,30 @@ export const PicBox = styled.div`
     color: #333;
     font-size: 14px;
     margin: 6px 4px;
-    &: hover {
-      color: #fed631;
-    }
   }
   .pic-container {
+    position: relative;
     height: 142px;
     display: block;
     overflow: hidden;
+    &:hover {
+      p + img {
+        transition: all .2s ease-in;
+        transform: translateY(-6px);
+        border: 1px solid #fed631;
+      }
+    }
+    .high-light {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 20;
+      &:hover {
+        background-color: rgba(255,255,255,.3)
+      }
+    }
     .item-pic {
       display: block;
       width: 260px;
@@ -149,11 +166,7 @@ export const PicBox = styled.div`
       cursor: pointer;
       transition: all .2s ease-in;
       transform: translateY(0);
-      &:hover {
-        transition: all .2s ease-in;
-        transform: translateY(-6px);
-        border: 1px solid #fed631;
-      }
+      z-index: 20;
     }
   }
 `;
