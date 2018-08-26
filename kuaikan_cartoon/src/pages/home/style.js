@@ -109,32 +109,75 @@ export const Container = styled.div`
 `;
 
 export const ListItem = styled.a`
+  width: 260px;
   position: relative;
+  display: inline-block;
   margin: 10px 6px;
   box-sizing: border-box;
-  .pic-box {
+`;
+
+export const PicBox = styled.div`
+  width: 163px;
+  width: 100%;
+  box-sizing: border-box;
+  &:hover {
+    .cartoon-title {
+      color: #fed631;
+    }
+  }
+  .cartoon-title {
+    display: block;
+    color: #333;
+    font-size: 14px;
+    margin: 6px 4px;
+    &: hover {
+      color: #fed631;
+    }
+  }
+  .pic-container {
     height: 142px;
-    overflow: hidden
+    display: block;
+    overflow: hidden;
     .item-pic {
       display: block;
       width: 260px;
       height: 163px;
+      padding: 1px;
       margin-bottom: 10px;
-      border: 1px solid transparent;
+      border: 1px solid #eee;
       box-sizing: border-box;
+      cursor: pointer;
+      transition: all .2s ease-in;
+      transform: translateY(0);
       &:hover {
         transition: all .2s ease-in;
         transform: translateY(-6px);
+        border: 1px solid #fed631;
       }
-      transition: all .2s ease-in;
-      transform: translateY(0);
     }
   }
-  
-  .tag {
-    color: #333;
+`;
+
+
+export const DescBox = styled.div`
+  padding: 0 4px;
+  margin: 10px 0;
+  .author {
+    width: 122px;
+    float: left;
     font-size: 14px;
-    margin: 6px 4px;
+    color: #bfbfbf;
+    text-overflow: ellipsis;
   }
+`;
+
+export const Praise = styled.div`
+  float: right;
+  color: #bfbfbf;
+  font-size: 14px;
+  letter-spacing: .4px;
+  line-height: 16px;
+  background-size: contain;
+  vertical-align: top;
 `
 

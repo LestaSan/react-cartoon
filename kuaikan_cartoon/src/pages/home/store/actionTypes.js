@@ -1,0 +1,1 @@
+export const SET_CARTOON_LIST = 'home/SET_CARTOON_LIST';
