@@ -76,6 +76,7 @@ export const SearchButton = styled.input.attrs({
   margin-left: 8px;
   border: 2px solid #724d06;
   cursor:pointer;
+  outline: none;
 `;
 
 export const InfoWrapper = styled.div`
@@ -121,6 +122,7 @@ export const PicBox = styled.div`
   width: 163px;
   width: 100%;
   box-sizing: border-box;
+  cursor: pointer;
   &:hover {
     .cartoon-title {
       color: #fed631;

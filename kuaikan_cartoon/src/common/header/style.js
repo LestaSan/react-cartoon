@@ -6,8 +6,9 @@ export const HeaderWrapper = styled.div`
   position: relative;
   background: #282828;
   margin: 0 auto;
-  width: 100%;
+  width: 1263px;
   height: 54px;
+  box-sizing: border-box;
 `
 
 export const Logo = styled.div`
@@ -53,6 +54,7 @@ export const NavItem = styled.div`
     transform-origin: center center
   }
   &.common {
+    cursor: pointer;
     &:hover {
       color: #ffd900;
     }
