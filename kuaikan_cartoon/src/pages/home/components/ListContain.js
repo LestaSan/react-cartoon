@@ -28,7 +28,7 @@ class ListContain extends Component {
                   <Praise>
                     <div className="number">
                       <i className="iconfont">&#xe668;</i>
-                      {item.parise}
+                      {item.praise}
                     </div>
                   </Praise>
                 </DescBox>

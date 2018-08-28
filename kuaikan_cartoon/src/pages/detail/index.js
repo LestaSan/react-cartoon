@@ -49,7 +49,7 @@ class Detail extends Component {
                 </Box>
                 <Box>
                   <i className="iconfont">&#xe668;</i>
-                  {this.list.parise}
+                  {this.list.praise}
                 </Box>
               </Nav>
             </OtherContent>
