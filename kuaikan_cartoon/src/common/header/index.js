@@ -16,7 +16,8 @@ import {
   Login,
   Avatar,
   UserFollowed,
-  Logout
+  Logout,
+  NoContent
 } from './style.js'
 
 class Header extends Component {
@@ -97,6 +98,18 @@ class Header extends Component {
           onMouseEnter={() => {handleMouseEnter(this.icon)}}
           onMouseLeave={() => {handleMouseLeave(this.icon)}}
         >
+          {
+            this.showItem()
+          }
+        </FollowInfo>
+      );
+    }
+  }
+  showItem() {
+    const { isLogin, cartoonList } = this.props;
+    if(!isLogin) {
+      return (
+        <div>
           <Img/>
           <LoginItem>
             <LoginContent>未登录</LoginContent>
@@ -105,9 +118,24 @@ class Header extends Component {
           <Link to="/login">
             <Login>登录</Login>
           </Link>
-        </FollowInfo>
+        </div>
       );
+    } else {
+      if(cartoonList.length === '0') {
+        return <NoContent>大大您什么都没有收藏哦~</NoContent>
+      }
+      return this.getCartoonList()
     }
+  }
+  getCartoonList() {
+    const { cartoonList } = this.props;
+    return (
+      cartoonList.map(item => {
+        return (
+          <div>{item.get('id')}</div>
+        )
+      })
+    )
   }
 }
 
@@ -117,6 +145,7 @@ const mapStateToProps = (state) => ({
   IsMouseEnter: state.getIn(['header','IsMouseEnter']),
   MouseOverUser: state.getIn(['header', 'MouseOverUser']),
   IsMouseEnterUser: state.getIn(['header', 'IsMouseEnterUser']),
+  cartoonList: state.getIn(['header', 'cartoonList']),
   isLogin: state.getIn(['login', 'isLogin']),
   account: state.getIn(['login', 'account'])
 })

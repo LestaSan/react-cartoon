@@ -5,7 +5,11 @@ const defaultState = fromJS({
   MouseOver: false,
   IsMouseEnter: false,
   MouseOverUser: false,
-  IsMouseEnterUser: false
+  IsMouseEnterUser: false,
+  cartoonList: [
+    {id: 1},
+    { id: 2}
+  ]
 })
 export default (state = defaultState, action) => {
   switch (action.type) {

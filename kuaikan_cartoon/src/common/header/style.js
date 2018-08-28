@@ -5,8 +5,6 @@ import LoginPic from '../../statics/login.png';
 export const HeaderWrapper = styled.div`
   position: relative;
   background: #282828;
-  margin: 0 auto;
-  width: 1263px;
   height: 54px;
   box-sizing: border-box;
 `
@@ -170,3 +168,8 @@ export const Logout = styled.div`
   text-decoration: none;
   cursor: pointer;
 `;
+
+export const NoContent = styled.div`
+  margin-top:40px;
+  
+`
