@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import {
   DetailContainer,
   CartoonInfo,
@@ -14,7 +14,7 @@ import {
   Box
 } from './style';
 
-class Detail extends Component {
+class Detail extends PureComponent {
   constructor(props) {
     super(props);
     this.list = props.location.state.data;
