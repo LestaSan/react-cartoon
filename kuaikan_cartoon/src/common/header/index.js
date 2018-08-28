@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { actionCreators } from './store';
+import { actionCreators as loginActionCreators } from '../../pages/login/store';
+import { Link } from 'react-router-dom'; 
 import {
   HeaderWrapper,
   Logo,
@@ -16,7 +18,7 @@ import {
 
 class Header extends Component {
   render() {
-    const { MouseOver, handleFollowInfoHide, handleFollowInfoShow } = this.props;
+    const { MouseOver, handleFollowInfoHide, handleFollowInfoShow, isLogin, logout } = this.props;
     return (
       <HeaderWrapper>
         <Logo>
@@ -37,7 +39,13 @@ class Header extends Component {
           </NavItem>
           
           <NavItem className="right common">注册</NavItem>
-          <NavItem className="right common">登录</NavItem>
+          {
+            isLogin ? 
+            <NavItem className="right common" onClick={logout}>退出</NavItem> :
+            <Link to="/login">
+              <NavItem className="right common">登录</NavItem>
+            </Link>
+          }
         </Nav>
       </HeaderWrapper>
     );
@@ -55,7 +63,9 @@ class Header extends Component {
             <LoginContent>未登录</LoginContent>
             <LoginContent>登录后即可关注喜欢的漫画</LoginContent>
           </LoginItem>
-          <Login>登录</Login>
+          <Link to="/login">
+            <Login>登录</Login>
+          </Link>
         </FollowInfo>
       )
     }
@@ -65,7 +75,8 @@ class Header extends Component {
 
 const mapStateToProps = (state) => ({
   MouseOver: state.get('header').get('MouseOver'),
-  IsMouseEnter: state.getIn(['header','IsMouseEnter'])
+  IsMouseEnter: state.getIn(['header','IsMouseEnter']),
+  isLogin: state.getIn(['login', 'isLogin'])
 })
 
 const mapDispatchToProps = (dispatch) => {
@@ -88,6 +99,9 @@ const mapDispatchToProps = (dispatch) => {
     handleMouseLeave() {
       const action = actionCreators.MouseLeave();
       dispatch(action)
+    },
+    logout() {
+      dispatch(loginActionCreators.logout())
     }
   }
 }

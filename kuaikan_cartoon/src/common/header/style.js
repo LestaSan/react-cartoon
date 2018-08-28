@@ -110,9 +110,7 @@ export const LoginContent = styled.div`
   text-align: center;
 `
 
-export const Login = styled.a.attrs({
-  href: '/'
-})`
+export const Login = styled.div`
   position: absolute;
   left: 116px;
   bottom: 140px;
@@ -123,5 +121,6 @@ export const Login = styled.a.attrs({
   font-size: 14px;
   text-align: center;
   line-height: 44px;
-  text-decoration: none
+  text-decoration: none;
+  cursor: pointer;
 `
