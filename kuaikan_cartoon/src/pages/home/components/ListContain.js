@@ -14,7 +14,7 @@ class ListContain extends Component {
       <Container>
         {cartoonList.map(item => {
           return (
-            <Link to={{pathname: `/detail/`, state: {data: item.DetailPageInfo}}} key={item.id}>
+            <Link to={{pathname: `/detail/`, state: {data: item}}} key={item.id}>
               <ListItem>
                 <PicBox>
                   <div className="pic-container">
