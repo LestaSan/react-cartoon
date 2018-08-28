@@ -7,7 +7,18 @@
         "imgUrl": "https://i1s.kkmh.com/image/180118/p9x0asn8v.webp-w750.jpg",
         "title": "吾凰在上",
         "author": "嗷小泽",
-        "praise": "2639万"
+        "praise": "2639万",
+        "DetailPageInfo": 
+          {
+            "id": 1,
+            "imgUrl": "https://i1s.kkmh.com/image/170104/s3mkjo1ls.webp-w750.jpg",
+            "title": "一条狗",
+            "author": "使徒子",
+            "description": "人与狗互换，将会发生什么爆笑情节？【授权/完结 责编：喵二】",
+            "hot": "5.83亿",
+            "parise": "631万"
+          }
+        
       },
       {
         "id": 2,
@@ -264,3 +275,5 @@
     ]
   }
 }
+
+

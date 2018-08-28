@@ -15,19 +15,24 @@ import {
 } from './style';
 
 class Detail extends Component {
+  constructor(props) {
+    super(props);
+    this.list = props.location.state.data;
+  }
   render() {
-    return <DetailContainer>
+    return (
+      <DetailContainer>
         <CartoonInfo>
           <LeftBlock>
-            <img src="https://i1s.kkmh.com/image/170104/s3mkjo1ls.webp-w750.jpg" alt="" />
+            <img src={this.list.imgUrl} alt="" />
           </LeftBlock>
           <RightBlock>
-            <Title>一条狗</Title>
-            <Author>使徒子</Author>
+            <Title>{this.list.title}</Title>
+            <Author>{this.list.author}</Author>
             <Description>
               <p className="desc-title">漫画简介</p>
               <div className="desc-content">
-                人与狗互换，将会发生什么爆笑情节？【授权/完结 责编：喵二】
+                {this.list.description}
               </div>
             </Description>
             <OtherContent>
@@ -40,17 +45,18 @@ class Detail extends Component {
                 </Box>
                 <Box>
                 <i className="iconfont">&#xe6b6;</i>
-                  5.83亿
+                  {this.list.hot}
                 </Box>
                 <Box>
                   <i className="iconfont">&#xe668;</i>
-                  631万
+                  {this.list.parise}
                 </Box>
               </Nav>
             </OtherContent>
           </RightBlock>
         </CartoonInfo>
-      </DetailContainer>;
+      </DetailContainer>
+    );
   }
 }
 

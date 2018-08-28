@@ -110,7 +110,7 @@ export const Container = styled.div`
   padding: 12px 18px;
 `;
 
-export const ListItem = styled.a`
+export const ListItem = styled.div`
   width: 260px;
   position: relative;
   display: inline-block;
