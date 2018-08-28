@@ -53,6 +53,12 @@ export const NavItem = styled.div`
     transition: all .3s ease-in;
     transform-origin: center center
   }
+  .avatar {
+    float: left;
+    line-height: 55px;
+    padding: 0 12px;
+    font-size: 14px;
+  }
   &.common {
     cursor: pointer;
     &:hover {
@@ -73,8 +79,7 @@ export const NavItem = styled.div`
   &.active {
     color: #ffd900;
   }
-  
-`
+`;
 
 export const FollowInfo = styled.div`
   position: absolute;
@@ -123,4 +128,45 @@ export const Login = styled.div`
   line-height: 44px;
   text-decoration: none;
   cursor: pointer;
+`;
+
+export const Avatar = styled.div`
+  float: left;
+  width: 30px;
+  height: 30px;
+  margin-top: 12px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: url(${LogoPic}) no-repeat;
+  background-size: 110%;
 `
+
+export const UserFollowed = styled.div`
+  position: absolute;
+  top: 54px;
+  right: 30px;
+  width: 280px;
+  padding: 20px;
+  box-sizing: border-box;
+  overflow: hidden;
+  background: #333;
+  z-index: 10;
+  .user-content {
+    line-height: 10px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #fff;
+  }
+`;
+
+export const Logout = styled.div`
+  height: 36px;
+  color: #333;
+  margin-top: 50px;
+  background: #fff;
+  font-size: 14px;
+  text-align: center;
+  line-height: 36px;
+  text-decoration: none;
+  cursor: pointer;
+`;

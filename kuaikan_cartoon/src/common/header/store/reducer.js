@@ -3,7 +3,9 @@ import * as actionTypes from './actionTypes';
 
 const defaultState = fromJS({
   MouseOver: false,
-  IsMouseEnter: false
+  IsMouseEnter: false,
+  MouseOverUser: false,
+  IsMouseEnterUser: false
 })
 export default (state = defaultState, action) => {
   switch (action.type) {
@@ -14,7 +16,15 @@ export default (state = defaultState, action) => {
     case actionTypes.MOUSE_ENTER:
       return state.set('IsMouseEnter', true);
     case actionTypes.MOUSE_LEAVE:
-      return state.set('IsMouseEnter', false)
+      return state.set('IsMouseEnter', false);
+    case actionTypes.USER_FOLLOWED_SHOW:
+      return state.set('MouseOverUser', true);
+    case actionTypes.USER_FOLLOWED_HIDE:
+      return state.set('MouseOverUser', false);
+    case actionTypes.MOUSE_ENTER_USER:
+      return state.set('IsMouseEnterUser', true);
+    case actionTypes.MOUSE_LEAVE_USER:
+      return state.set('IsMouseEnterUser', false)
     default: return state;
     }
 

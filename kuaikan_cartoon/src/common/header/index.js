@@ -13,12 +13,15 @@ import {
   Img,
   LoginContent,
   LoginItem,
-  Login
+  Login,
+  Avatar,
+  UserFollowed,
+  Logout
 } from './style.js'
 
 class Header extends Component {
   render() {
-    const { MouseOver, handleFollowInfoHide, handleFollowInfoShow, isLogin, logout } = this.props;
+    const { MouseOver, handleFollowInfoHide, handleFollowInfoShow, isLogin} = this.props;
     return (
       <HeaderWrapper>
         <Logo>
@@ -37,26 +40,62 @@ class Header extends Component {
             <i ref={(icon) => {this.icon = icon}} className="iconfont">&#xe644;</i>
             { this.getFollowInfo() }
           </NavItem>
-          
-          <NavItem className="right common">注册</NavItem>
           {
-            isLogin ? 
-            <NavItem className="right common" onClick={logout}>退出</NavItem> :
-            <Link to="/login">
-              <NavItem className="right common">登录</NavItem>
-            </Link>
+            this.getLoginState(isLogin)
           }
         </Nav>
       </HeaderWrapper>
     );
+  }
+  getLoginState (isLogin) {
+    const { account, handleFollowInfoShow, handleFollowInfoHide, MouseOverUser } = this.props;
+    if(!isLogin) {
+      return (
+        <div>
+          <NavItem className="right common">注册</NavItem>
+          <Link to="/login">
+            <NavItem className="right common">登录</NavItem>
+          </Link>
+        </div>
+      );
+    } else {
+      return (
+        <NavItem
+          className={ MouseOverUser ? 'right follow' : 'right'}
+          onMouseOver={handleFollowInfoShow}
+          onMouseOut={handleFollowInfoHide}
+        >
+          <Avatar />
+          <p className="avatar">{account}</p>
+          {
+            this.getUserFollowed() 
+          }
+        </NavItem>
+      )
+    }
+  }
+  getUserFollowed() {
+    const { account, logout, MouseOverUser, IsMouseEnterUser, handleMouseEnter, handleMouseLeave } = this.props;
+    if(MouseOverUser || IsMouseEnterUser) {
+      return (
+        <UserFollowed
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+        >
+          <div className="user-content">Hi，{account} 大大！</div>
+          <div className="user-content">今天也要快看漫画哦~</div>
+          <Logout onClick={ logout }>退出</Logout>
+        </UserFollowed>
+      );
+    }
   }
   getFollowInfo() {
     const { MouseOver, IsMouseEnter, handleMouseEnter, handleMouseLeave } = this.props;
     if(MouseOver || IsMouseEnter) {
       return (
         <FollowInfo 
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
+          onMouseEnter={() => {handleMouseEnter(this.icon)}}
+          onMouseLeave={() => {handleMouseLeave(this.icon)}}
         >
           <Img/>
           <LoginItem>
@@ -67,7 +106,7 @@ class Header extends Component {
             <Login>登录</Login>
           </Link>
         </FollowInfo>
-      )
+      );
     }
   }
 }
@@ -76,30 +115,50 @@ class Header extends Component {
 const mapStateToProps = (state) => ({
   MouseOver: state.get('header').get('MouseOver'),
   IsMouseEnter: state.getIn(['header','IsMouseEnter']),
-  isLogin: state.getIn(['login', 'isLogin'])
+  MouseOverUser: state.getIn(['header', 'MouseOverUser']),
+  IsMouseEnterUser: state.getIn(['header', 'IsMouseEnterUser']),
+  isLogin: state.getIn(['login', 'isLogin']),
+  account: state.getIn(['login', 'account'])
 })
 
 const mapDispatchToProps = (dispatch) => {
   return {
     handleFollowInfoShow(icon) {
-      icon.style.transform = 'rotate(180deg)';
-      // console.log(icon.style.transform)
-      const action = actionCreators.FollowInfoShow;
-      dispatch(action)
+      if(icon.className) {
+        icon.style.transform = 'rotate(180deg)';
+        const action = actionCreators.FollowInfoShow();
+        dispatch(action)
+      }
+      dispatch(actionCreators.userFollowedShow())
     },
     handleFollowInfoHide(icon) {
-      icon.style.transform = 'rotate(0deg)';
-      const action = actionCreators.FollowInfoHide;
-      dispatch(action)
+      if(icon.className) {
+        icon.style.transform = 'rotate(0deg)';
+        const action = actionCreators.FollowInfoHide();
+        dispatch(action)
+      }
+      dispatch(actionCreators.userFollowedHide())
     },
-    handleMouseEnter() {
-      const action = actionCreators.MouseEnter();
-      dispatch(action)
+    handleMouseEnter(icon) {
+      if(icon.className) {
+        const action = actionCreators.MouseEnter();
+        dispatch(action)
+      }
+      dispatch(actionCreators.MouseEnterUser())
     },
-    handleMouseLeave() {
-      const action = actionCreators.MouseLeave();
-      dispatch(action)
+    handleMouseLeave(icon) {
+      if(icon.className) {
+        const action = actionCreators.MouseLeave();
+        dispatch(action)
+      }
+      dispatch(actionCreators.MouseLeaveUser())
     },
+    // handleMouseEnterUser() {
+    //   dispatch(actionCreators.MouseEnterUser());
+    // },
+    // handleMouseLeaveUser() {
+    //   dispatch(actionCreators.MouseLeaveUser());
+    // },
     logout() {
       dispatch(loginActionCreators.logout())
     }

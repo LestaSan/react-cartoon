@@ -37,10 +37,12 @@ const mapState = (state) => ({
 
 const mapDispatch = (dispatch) => ({
   getLoginState(accountElem, passwordElem) {
-    if(accountElem.value && passwordElem.value) {
-      dispatch(actionCreators.getLoginState());
+    const account = accountElem.value;
+    const password = passwordElem.value;
+    if(account && password) {
+      dispatch(actionCreators.getLoginState(account));
     } else {
-      alert('账号及密码不正确')
+      alert('账号或密码不正确')
     }
   }
 })

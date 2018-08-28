@@ -1,16 +1,17 @@
 import * as actionTypes from './actionTypes';
 import axios from 'axios';
 
-const changeLoginState = (isLogin) => ({
+const changeLoginState = (isLogin, account) => ({
   type: actionTypes.CHANGE_LOGIN_STATE,
-  isLogin
+  isLogin,
+  account
 }) 
 
-export const getLoginState = () => {
+export const getLoginState = (account) => {
   return dispatch => {
     axios.get('/api/login.json').then(res => {
       const result = res.data.data;
-      dispatch(changeLoginState(result))
+      dispatch(changeLoginState(result, account))
     })
   }
 };
