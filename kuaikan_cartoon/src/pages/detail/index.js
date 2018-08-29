@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
-import Header from './components/Header';
+import Header from './components/header';
+import ItemList from './components/itemlist'
 
 class Detail extends PureComponent {
   constructor(props) {
@@ -8,7 +9,10 @@ class Detail extends PureComponent {
   }
   render() {
     return (
-      <Header list={this.list}/>
+      <div>
+        <Header list={this.list}/>
+        <ItemList/>
+      </div>
     );
   }
 }

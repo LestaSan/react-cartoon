@@ -123,4 +123,19 @@ export const Box = styled.div`
   i {
     padding-right: 4px;
   }
+`;
+
+export const ListWrapper = styled.div`
+  padding: 14px 24px;
+  margin-top: 16px;
+`;
+
+export const ListTable = styled.div`
+  width: 100%;
+  margin-bottom: 20px;
+`;
+
+export const ListItem = styled.div`
+  height: 30px;
+  border-top: 1ps solid #e5e5e5;
 `

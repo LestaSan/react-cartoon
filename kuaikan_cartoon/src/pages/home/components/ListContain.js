@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import { actionCreators } from "../store";
 import { Container, ListItem, PicBox, DescBox, Praise } from "../style";
 import { Link } from 'react-router-dom';
-// () => this.routerTo(item.get("DetailPageInfo"))
 
 
 
@@ -14,7 +13,7 @@ class ListContain extends Component {
       <Container>
         {cartoonList.map(item => {
           return (
-            <Link to={{pathname: `/detail/`, state: {data: item}}} key={item.id}>
+            <Link to={{pathname: `/detail/${item.id}/`, state: {data: item}}} key={item.id}>
               <ListItem>
                 <PicBox>
                   <div className="pic-container">
