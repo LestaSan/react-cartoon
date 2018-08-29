@@ -12,7 +12,7 @@ class Detail extends PureComponent {
     return (
       <DetailContainer>
         <Header list={this.list}/>
-        <ItemList/>
+        <ItemList list={this.list.listItem}/>
       </DetailContainer>
     );
   }

@@ -154,6 +154,12 @@ export const ItemBox = styled.div`
     width: 40%;
     font-size: 16px;
     padding: 4px 6px;
+    p {
+      cursor: pointer;
+      &:hover {
+        
+      }
+    }
   }
   &.three {
     width: 15%;
@@ -164,12 +170,25 @@ export const ItemBox = styled.div`
   &.four {
     width: 15%;
   }
-  img {
+  .img-box {
     width: 200px;
-    overflow: hidden;
+    height: 114px;
     margin: 0 auto;
-    border-raius: 2px;
+    overflow: hidden;
+    box-sizing: border-box;
+    border-raidus: 2px;
     border: 1px solid #e5e5e5;
+    img {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      cursor: pointer;
+      transition: .2s ease-in;
+      &:hover {
+        transform: scale(1.1);
+        transition: .2s ease-in;
+      }
+    }
   }
   p {
     display: block;

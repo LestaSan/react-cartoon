@@ -7,23 +7,35 @@ import {
 } from '../style';
 
 class ItemList extends Component {
+  constructor(props) {
+    super(props)
+    this.list = props.list;
+  }
   render() {
     return (
       <ListWrapper>
         <ListTable>
-          <ListItem>
+          {
+            this.list.map(item => {
+              return (
+                <ListItem key={item.id}>
             <ItemBox className="one">
-              <img src="https://i1s.kkmh.com/image/180826/I6CqlwWyJ.webp-w750.jpg" alt=""/>
+              <div className="img-box">
+                <img src={item.imgUrl} alt=""/>
+              </div>
             </ItemBox >
             <ItemBox className="two">
-              <p>第37话 生气的金毛太子</p>
+              <p>{item.title}</p>
             </ItemBox>
             <ItemBox className="three">
               <i className="iconfont">&#xe668;</i>
-              43万
+              {item.praise}
             </ItemBox>
-            <ItemBox className="four">08-27</ItemBox>
+            <ItemBox className="four">{item.date}</ItemBox>
           </ListItem>
+              )
+            })
+          }
         </ListTable>
       </ListWrapper>
     );
