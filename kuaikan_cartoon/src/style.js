@@ -26,7 +26,7 @@ injectGlobal`
   article, aside, details, figcaption, figure, 
   footer, header, hgroup, menu, nav, section {
 	  display: block;
-  }
+  }e
   body {
   	line-height: 1;
   }
