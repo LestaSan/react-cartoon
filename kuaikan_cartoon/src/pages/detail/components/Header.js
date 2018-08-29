@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { actionCreators } from '../store';
 import {
-  DetailContainer,
   CartoonInfo,
   LeftBlock,
   RightBlock,
@@ -20,6 +21,7 @@ class Header extends Component {
     this.list = props.list;
   }
   render() {
+    const { followCartoon } = this.props;
     return (
         <CartoonInfo>
           <LeftBlock>
@@ -36,7 +38,7 @@ class Header extends Component {
             </Description>
             <OtherContent>
               <FirstInfo className="btn other">查看第一话</FirstInfo>
-              <Follow className="btn other">关注</Follow>
+              <Follow className="btn other" onClick={() => followCartoon(this.list)}>关注</Follow>
               <Nav className="other">
                 <Box>
                   <i className="iconfont">&#xe660;</i>
@@ -58,4 +60,10 @@ class Header extends Component {
   }
 }
 
-export default Header;
+const mapDispatch = (dispatch) => ({
+  followCartoon(list) {
+    dispatch(actionCreators.setFollowCartoon(list));
+  }
+})
+
+export default connect(null, mapDispatch)(Header);

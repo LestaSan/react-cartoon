@@ -11,7 +11,7 @@ class Detail extends PureComponent {
   render() {
     return (
       <DetailContainer>
-        <Header list={this.list}/>
+        <Header list={this.list.mainContent}/>
         <ItemList list={this.list.listItem}/>
       </DetailContainer>
     );

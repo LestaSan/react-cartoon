@@ -11,9 +11,10 @@ class ListContain extends Component {
     const cartoonList = this.props.cartoonList.toJS();
     return (
       <Container>
-        {cartoonList.map(item => {
+        {cartoonList.map(list => {
+          const item = list.mainContent;
           return (
-            <Link to={{pathname: `/detail/${item.id}/`, state: {data: item}}} key={item.id}>
+            <Link to={{pathname: `/detail/${item.id}/`, state: {data: list}}} key={item.id}>
               <ListItem>
                 <PicBox>
                   <div className="pic-container">

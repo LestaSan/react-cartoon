@@ -157,8 +157,10 @@ export const ItemBox = styled.div`
     p {
       cursor: pointer;
       &:hover {
-        
+        color: #fdd634;
+        transition: .1s ease-in;
       }
+      transition: .1s ease-in;
     }
   }
   &.three {

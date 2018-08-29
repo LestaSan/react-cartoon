@@ -46,6 +46,7 @@ export const NavItem = styled.div`
     display: block;
     float: right;
     font-size: 16px;
+    margin-top: 16px;
     margin-left: 6px;
     color: #878787;
     transition: all .3s ease-in;
