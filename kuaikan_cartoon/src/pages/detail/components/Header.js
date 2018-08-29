@@ -14,6 +14,7 @@ import {
   Nav,
   Box
 } from '../style';
+import { CANCLE_FOLLOWED } from '../store/actionTypes';
 
 class Header extends Component {
   constructor(props) {
@@ -21,7 +22,8 @@ class Header extends Component {
     this.list = props.list.mainContent;
   }
   render() {
-    const { followCartoon } = this.props;
+    const { followCartoon, cancleFollowed, isFollowed, isLogin, followItem, id } = this.props;
+    this.newFollowItem = followItem.toJS();
     return (
         <CartoonInfo>
           <LeftBlock>
@@ -38,7 +40,11 @@ class Header extends Component {
             </Description>
             <OtherContent>
               <FirstInfo className="btn other">查看第一话</FirstInfo>
-              <Follow className="btn other" onClick={() => followCartoon(this.props.list)}>关注</Follow>
+              {
+                isFollowed && isLogin && this.getId(this.newFollowItem, this.list.id) ? 
+                <Follow className="btn other" onClick={() => cancleFollowed(this.list.id, this.newFollowItem)}>取消关注</Follow> :
+                <Follow className="btn other" onClick={() => followCartoon(this.props.list, this.list.id, isLogin)}>关注</Follow>
+              }
               <Nav className="other">
                 <Box>
                   <i className="iconfont">&#xe660;</i>
@@ -58,13 +64,32 @@ class Header extends Component {
         </CartoonInfo>
     );
   }
+  getId(newList, id)  {
+    const arr = [];
+    for(let i = 0; i < newList.length; i ++) {
+      arr.push(newList[i].id)
+    }
+    for(let i = 0; i < arr.length; i++)
+      if(arr[i] === id) {
+        return true
+      }
+  }
 }
 
+const mapState = (state) => ({
+  isFollowed: state.getIn(['detail', 'isFollowed']),
+  followItem: state.getIn(['detail', 'followItem']),
+  id: state.getIn(['detail', 'id']),
+  isLogin: state.getIn(['login', 'isLogin']),
+})
+
 const mapDispatch = (dispatch) => ({
-  followCartoon(list) {
-    console.log(list.mainContent)
-    dispatch(actionCreators.setFollowCartoon(list.mainContent));
+  followCartoon(list, id, isLogin) {
+    isLogin && dispatch(actionCreators.setFollowCartoon(list.mainContent, id));
+  },
+  cancleFollowed(id, list) {
+    dispatch(actionCreators.cancleFollowed(id, list));
   }
 })
 
-export default connect(null, mapDispatch)(Header);
+export default connect(mapState, mapDispatch)(Header);
