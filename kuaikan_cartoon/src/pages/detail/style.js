@@ -31,6 +31,7 @@ export const LeftBlock = styled.div`
 `;
 
 export const RightBlock = styled.div`
+  position: relative;
   margin-left: 380px;
 `;
 
@@ -44,33 +45,33 @@ export const Title = styled.div`
 export const Author = styled.div`
   color: #bfbfbf;
   font-size: 14px;
-  margin: 8px 0;
 `;
 
 export const Description = styled.div`
-  padding-top: 8px;
   color: #666;
   font-size: 14px;
+  margin-top: 10px;
   .desc-title {
     width: 56px;
-    padding: 4px 0;
     border-bottom: 2px solid #f5ce03;
   }
   .desc-content {
+    height: auto;
+    width: 100%;
     margin: 10px 0;
   }
 `;
 
 export const OtherContent = styled.div`
-  padding-top: 54px;
+  position: absolute;
+  top: 168px;
   font-weight: 400;
   .btn {
     display: inline-block;
   }
-`
-
-export const LeftBox = styled.div`
-
+  .other {
+    display: inline-block;
+  }
 `;
 
 export const FirstInfo = styled.div`
@@ -110,7 +111,8 @@ export const Follow = styled.div`
 
 export const Nav = styled.div`
   float: right;
-  margin: 16px 0 0;
+  padding-left: 80px;
+  padding-top: 12px;
 `;
 
 export const Box = styled.div`

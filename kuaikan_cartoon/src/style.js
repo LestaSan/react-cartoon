@@ -19,7 +19,8 @@ injectGlobal`
 	  border: 0;
 	  font-size: 100%;
 	  font: inherit;
-	  vertical-align: baseline;
+    vertical-align: baseline;
+    line-height: 1.42857143; 
   }
 / * HTML5 display-role reset for older browsers */
   article, aside, details, figcaption, figure, 

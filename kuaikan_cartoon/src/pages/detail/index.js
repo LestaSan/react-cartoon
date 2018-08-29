@@ -36,9 +36,9 @@ class Detail extends PureComponent {
               </div>
             </Description>
             <OtherContent>
-              <FirstInfo className="btn">查看第一话</FirstInfo>
-              <Follow className="btn">关注</Follow>
-              <Nav>
+              <FirstInfo className="btn other">查看第一话</FirstInfo>
+              <Follow className="btn other">关注</Follow>
+              <Nav className="other">
                 <Box>
                   <i className="iconfont">&#xe660;</i>
                   分享
