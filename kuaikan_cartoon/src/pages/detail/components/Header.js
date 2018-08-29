@@ -21,7 +21,6 @@ class Header extends Component {
   }
   render() {
     return (
-      <DetailContainer>
         <CartoonInfo>
           <LeftBlock>
             <img src={this.list.imgUrl} alt="" />
@@ -55,7 +54,6 @@ class Header extends Component {
             </OtherContent>
           </RightBlock>
         </CartoonInfo>
-      </DetailContainer>
     );
   }
 }

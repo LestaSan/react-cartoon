@@ -136,6 +136,47 @@ export const ListTable = styled.div`
 `;
 
 export const ListItem = styled.div`
-  height: 30px;
-  border-top: 1ps solid #e5e5e5;
+  border-top: 1px solid #ddd;
+`;
+
+export const ItemBox = styled.div`
+  display: inline-block;
+  padding: 16px 0;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 1.42857143;
+  font-size: 14px;
+  box-sizing: border-box;
+  &.one {
+    width: 30%;
+  }
+  &.two {
+    width: 40%;
+    font-size: 16px;
+    padding: 4px 6px;
+  }
+  &.three {
+    width: 15%;
+    i {
+      margin-right: 4px;
+    }
+  }
+  &.four {
+    width: 15%;
+  }
+  img {
+    width: 200px;
+    overflow: hidden;
+    margin: 0 auto;
+    border-raius: 2px;
+    border: 1px solid #e5e5e5;
+  }
+  p {
+    display: block;
+    width: 200px;
+    overflow: hidden;
+    margin: 0 auto;
+    border-radius: 2px;
+    border: 1px solid #e5e5e;
+  }
 `
