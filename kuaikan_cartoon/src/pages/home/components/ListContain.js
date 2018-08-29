@@ -4,8 +4,6 @@ import { actionCreators } from "../store";
 import { Container, ListItem, PicBox, DescBox, Praise } from "../style";
 import { Link } from 'react-router-dom';
 
-
-
 class ListContain extends Component {
   render() {
     const cartoonList = this.props.cartoonList.toJS();

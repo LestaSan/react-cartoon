@@ -52,6 +52,7 @@ export const NavSearch = styled.div`
 `
 
 export const Search = styled.input.attrs({
+  type: 'text',
   placeholder: '搜索作品名'
 })`
   box-sizing: border-box;

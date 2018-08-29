@@ -85,7 +85,11 @@ const mapState = (state) => ({
 
 const mapDispatch = (dispatch) => ({
   followCartoon(list, id, isLogin) {
-    isLogin && dispatch(actionCreators.setFollowCartoon(list.mainContent, id));
+    if(!isLogin) {
+      alert('请您先登录哦~')
+    } else {
+      dispatch(actionCreators.setFollowCartoon(list.mainContent, id));
+    }
   },
   cancleFollowed(id, list) {
     dispatch(actionCreators.cancleFollowed(id, list));
