@@ -17,7 +17,12 @@ import {
   Avatar,
   UserFollowed,
   Logout,
-  NoContent
+  NoContent,
+  FollowContain,
+  CartoonItem,
+  LeftBox,
+  RightBox,
+  Box
 } from './style.js'
 
 class Header extends Component {
@@ -106,7 +111,7 @@ class Header extends Component {
     }
   }
   showItem() {
-    const { isLogin, cartoonList } = this.props;
+    const { isLogin, followItem } = this.props;
     if(!isLogin) {
       return (
         <div>
@@ -121,20 +126,42 @@ class Header extends Component {
         </div>
       );
     } else {
-      if(cartoonList.length === '0') {
+      if(followItem.size < 1) {
         return <NoContent>大大您什么都没有收藏哦~</NoContent>
+        
       }
+      
       return this.getCartoonList()
     }
   }
   getCartoonList() {
-    const { cartoonList } = this.props;
+    const { followItem } = this.props;
+    const list = followItem.toJS();
     return (
-      cartoonList.map(item => {
-        return (
-          <div>{item.get('id')}</div>
-        )
-      })
+      <FollowContain>
+       {
+          list.map(item => {
+            return (
+              <CartoonItem key={item.id}>
+                <LeftBox>
+                  <img src={item.imgUrl} alt=""/>
+                </LeftBox>
+                <RightBox>
+                  <Box className="one">
+                    <p>{item.title}</p>
+                  </Box>
+                  <Box className="two">
+                    <p>{item.author}</p>
+                  </Box>
+                  <Box className="three">
+                    <p>更新至：第{item.id}话</p>
+                  </Box>
+                </RightBox>
+              </CartoonItem>
+            )
+          })
+       }
+      </FollowContain>
     )
   }
 }
@@ -145,9 +172,9 @@ const mapStateToProps = (state) => ({
   IsMouseEnter: state.getIn(['header','IsMouseEnter']),
   MouseOverUser: state.getIn(['header', 'MouseOverUser']),
   IsMouseEnterUser: state.getIn(['header', 'IsMouseEnterUser']),
-  cartoonList: state.getIn(['header', 'cartoonList']),
   isLogin: state.getIn(['login', 'isLogin']),
-  account: state.getIn(['login', 'account'])
+  account: state.getIn(['login', 'account']),
+  followItem: state.getIn(['detail', 'followItem'])
 })
 
 const mapDispatchToProps = (dispatch) => {
@@ -182,12 +209,6 @@ const mapDispatchToProps = (dispatch) => {
       }
       dispatch(actionCreators.MouseLeaveUser())
     },
-    // handleMouseEnterUser() {
-    //   dispatch(actionCreators.MouseEnterUser());
-    // },
-    // handleMouseLeaveUser() {
-    //   dispatch(actionCreators.MouseLeaveUser());
-    // },
     logout() {
       dispatch(loginActionCreators.logout())
     }

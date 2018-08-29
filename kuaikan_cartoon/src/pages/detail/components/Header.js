@@ -18,7 +18,7 @@ import {
 class Header extends Component {
   constructor(props) {
     super(props);
-    this.list = props.list;
+    this.list = props.list.mainContent;
   }
   render() {
     const { followCartoon } = this.props;
@@ -38,7 +38,7 @@ class Header extends Component {
             </Description>
             <OtherContent>
               <FirstInfo className="btn other">查看第一话</FirstInfo>
-              <Follow className="btn other" onClick={() => followCartoon(this.list)}>关注</Follow>
+              <Follow className="btn other" onClick={() => followCartoon(this.props.list)}>关注</Follow>
               <Nav className="other">
                 <Box>
                   <i className="iconfont">&#xe660;</i>
@@ -62,7 +62,8 @@ class Header extends Component {
 
 const mapDispatch = (dispatch) => ({
   followCartoon(list) {
-    dispatch(actionCreators.setFollowCartoon(list));
+    console.log(list.mainContent)
+    dispatch(actionCreators.setFollowCartoon(list.mainContent));
   }
 })
 

@@ -9,7 +9,7 @@ const defaultState = fromJS({
 export default (state = defaultState, action) => {
   switch(action.type) {
     case actionTypes.SET_FOLLOW_CARTOON:
-      return state.get('followItem').concat(action.list)
+      return state.set('followItem', state.get('followItem').push(action.list))
     default: return state;
   }
 }

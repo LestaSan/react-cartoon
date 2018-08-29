@@ -173,4 +173,48 @@ export const Logout = styled.div`
 export const NoContent = styled.div`
   margin-top:40px;
   
-`
+`;
+
+export const FollowContain = styled.div`
+  position: relative;
+  box-sizing: border-box;
+  overflow: hidden;
+`;
+
+export const CartoonItem = styled.div`
+  overflow: hidden;
+  width: 100%;
+  padding: 15px;
+  border-bottom: 1px solid #878787;
+  box-sizing: border-box;
+`;
+
+export const LeftBox = styled.div`
+  float: left;
+  width: 182px;
+  height: 114px;
+  margin-right: 20px;
+  box-sizing: border-box;
+  img {
+    width: 100%;
+    height: 100%;
+
+  }
+`;
+
+export const RightBox = styled.div`
+  overflow: hidden;
+`;
+
+export const Box = styled.div`
+  display: block;
+  color: #8b8b8b;
+  &.one {
+    font-size: 16px;
+    color: #fff;
+  }
+  &.three {
+    margin-top: 50px;
+  }
+
+`;

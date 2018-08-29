@@ -10,7 +10,7 @@ export default (state = defaultState, action) => {
   switch(action.type) {
     case actionTypes.CHANGE_LOGIN_STATE:
       return state.merge({
-        isLogin: action.isLogin,
+        isLogin: action.isLogin.isLogin,
         account: action.account,
       })
     case actionTypes.LOGOUT:
