@@ -14,7 +14,6 @@ import {
   Nav,
   Box
 } from '../style';
-import { CANCLE_FOLLOWED } from '../store/actionTypes';
 
 class Header extends Component {
   constructor(props) {
@@ -22,7 +21,7 @@ class Header extends Component {
     this.list = props.list.mainContent;
   }
   render() {
-    const { followCartoon, cancleFollowed, isLogin, followItem, id } = this.props;
+    const { followCartoon, cancleFollowed, isLogin, followItem } = this.props;
     this.followItem = followItem.toJS();
     return (
         <CartoonInfo>

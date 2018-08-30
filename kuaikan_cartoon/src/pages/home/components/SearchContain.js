@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { actionCreators } from "../store";
 import { Container, ListItem, PicBox, DescBox, Praise } from "../style";
 
 class SearchContain extends Component {

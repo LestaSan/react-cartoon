@@ -42,7 +42,6 @@ class Header extends Component {
     );
   }
   getLoginState (isLogin) {
-    const { account, handleFollowInfoShow, handleFollowInfoHide, MouseOverUser } = this.props;
     if(!isLogin) {
       return (
         <div>
