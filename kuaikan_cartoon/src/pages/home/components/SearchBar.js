@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 import { connect } from 'react-redux';
 import { actionCreators } from '../store';
 import {
@@ -7,7 +7,7 @@ import {
   SearchButton
 } from '../style';
 
-class SearchBar extends Component {
+class SearchBar extends PureComponent {
   render() {
     return (
       <NavSearch>
@@ -21,7 +21,7 @@ class SearchBar extends Component {
     );
   }
   componentDidMount() {
-    this.props.getSearchInfo()
+    this.props.getSearchInfo();
   }
   searchInfo() {
     const list = this.props.mainInfo.toJS();

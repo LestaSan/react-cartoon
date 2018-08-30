@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import Pic from '../../statics/login-background.png';
 
-export const LoginContainer = styled.div`
+export const LoginContainer = styled.div`;
   position: relative;
   margin: 0 auto;
   width: 1263px;
@@ -10,7 +10,7 @@ export const LoginContainer = styled.div`
   background-color: #fbfbfb;
 `;
 
-export const LoginForm = styled.div`
+export const LoginForm = styled.div`;
   width: 270px;
   position: absolute;
   right: 14%;
@@ -18,7 +18,7 @@ export const LoginForm = styled.div`
   transform: translateY(-50%);
 `;
 
-export const Input = styled.input`
+export const Input = styled.input`;
   width: 100%;
   height: 29px;
   margin-bottom: 15px;
@@ -28,7 +28,7 @@ export const Input = styled.input`
   background-color: #fbfbfb;
 `;
 
-export const Button = styled.div`
+export const Button = styled.div`;
   width: 100%;
   height: 35px;
   margin-top: 15px;
@@ -38,4 +38,4 @@ export const Button = styled.div`
   line-height: 35px;
   text-align: center;
   cursor: pointer;
-`
+`;

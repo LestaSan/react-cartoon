@@ -14,10 +14,8 @@ export default (state = defaultState, action) => {
         followItem: state.get('followItem').push(action.list),
         id: action.id
       });
-      case actionTypes.CANCLE_FOLLOWED:
-        return state.merge({
-          followItem: action.list
-        })
+    case actionTypes.CANCLE_FOLLOWED:
+      return state.set('followItem', action.list);
     default: return state;
   }
 }

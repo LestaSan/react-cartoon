@@ -29,4 +29,5 @@ export default (state = defaultState, action) => {
       return state.set('isShowed', action.isShowed)
     default: return state;
   }
-}
+};
+

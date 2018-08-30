@@ -5,7 +5,7 @@ const changeLoginState = (isLogin, account) => ({
   type: actionTypes.CHANGE_LOGIN_STATE,
   isLogin,
   account
-}) 
+});
 
 export const getLoginState = (account) => {
   return dispatch => {
@@ -19,4 +19,4 @@ export const getLoginState = (account) => {
 export const logout = () => ({
   type: actionTypes.LOGOUT,
   isLogin: false
-})
+});

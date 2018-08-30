@@ -12,9 +12,9 @@ export default (state = defaultState, action) => {
       return state.merge({
         isLogin: action.isLogin.isLogin,
         account: action.account,
-      })
+      });
     case actionTypes.LOGOUT:
-      return state.set('isLogin', action.isLogin)
+      return state.set('isLogin', action.isLogin);
     default: return state;
   }
-}
+};

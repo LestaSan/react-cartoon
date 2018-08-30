@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { actionCreators } from '../store';
 import {
@@ -15,7 +15,7 @@ import {
   Box
 } from '../style';
 
-class Header extends Component {
+class Header extends PureComponent {
   constructor(props) {
     super(props);
     this.list = props.list.mainContent;
@@ -78,7 +78,7 @@ class Header extends Component {
     for(let i = 0; i < newList.length; i ++) {
       arr.push(newList[i].id)
     }
-    if(arr.indexOf(id) >= 0) return true
+    if(arr.indexOf(id) >= 0) return true;
   }
 }
 
@@ -86,7 +86,7 @@ const mapState = (state) => ({
   followItem: state.getIn(['detail', 'followItem']),
   id: state.getIn(['detail', 'id']),
   isLogin: state.getIn(['login', 'isLogin']),
-})
+});
 
 const mapDispatch = (dispatch) => ({
   followCartoon(list, id, isLogin) {

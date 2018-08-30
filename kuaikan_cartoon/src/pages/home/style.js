@@ -6,7 +6,7 @@ import TitleIcon from '../../statics/title_icon.png';
 import CloseIcon from '../../statics/close.png';
 
 
-export const HomeContainer = styled.div`
+export const HomeContainer = styled.div`;
   position: relative;
   margin: 0 auto;
   padding-left: 15px;
@@ -15,7 +15,7 @@ export const HomeContainer = styled.div`
 `;
 
 
-export const NavSearch = styled.div`
+export const NavSearch = styled.div`;
   position: relative;
   padding-bottom: 30px;
   box-sizing: border-box;
@@ -50,12 +50,12 @@ export const NavSearch = styled.div`
       background-size: contain;
     }
   }
-`
+`;
 
 export const Search = styled.input.attrs({
   type: 'text',
   placeholder: '搜索作品名'
-})`
+})`;
   box-sizing: border-box;
   border: 2px solid #724d06;
   background-color: #fbfbfb;
@@ -65,13 +65,13 @@ export const Search = styled.input.attrs({
   width: 550px;
   text-align: left;
   outline: none;
-`
+`;
 
 export const SearchButton = styled.input.attrs({
   type: 'submit',
   name: 'button',
   value: '搜索'
-})`
+})`;
   background-color: #fed631;
   border-radius: 20px;
   padding: 8px 14px;
@@ -81,7 +81,7 @@ export const SearchButton = styled.input.attrs({
   outline: none;
 `;
 
-export const InfoWrapper = styled.div`
+export const InfoWrapper = styled.div`;
   width: 1140px;
   margin: 0 auto;
   margin-top: 30px;
@@ -91,7 +91,7 @@ export const InfoWrapper = styled.div`
   box-sizing: border-box;
 `;
 
-export const TitleContain = styled.div`
+export const TitleContain = styled.div`;
   position: relative;
   padding: 12px;
   background: #fbfbfb;
@@ -121,11 +121,11 @@ export const TitleContain = styled.div`
   }
 `;
 
-export const Container = styled.div`
+export const Container = styled.div`;
   padding: 12px 18px;
 `;
 
-export const ListItem = styled.div`
+export const ListItem = styled.div`;
   width: 260px;
   position: relative;
   display: inline-block;
@@ -136,7 +136,7 @@ export const ListItem = styled.div`
   }
 `;
 
-export const PicBox = styled.div`
+export const PicBox = styled.div`;
   width: 100%;
   box-sizing: border-box;
   cursor: pointer;
@@ -233,7 +233,7 @@ export const PicBox = styled.div`
 `;
 
 
-export const DescBox = styled.div`
+export const DescBox = styled.div`;
   padding: 0 4px;
   margin: 10px 0;
   .author {
@@ -245,7 +245,7 @@ export const DescBox = styled.div`
   }
 `;
 
-export const Praise = styled.div`
+export const Praise = styled.div`;
   float: right;
   color: #bfbfbf;
   font-size: 14px;
@@ -253,5 +253,5 @@ export const Praise = styled.div`
   line-height: 16px;
   background-size: contain;
   vertical-align: top;
-`
+`;
 

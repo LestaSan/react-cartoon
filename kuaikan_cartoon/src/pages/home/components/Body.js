@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import ListContain from './ListContain';
 import {
@@ -6,7 +6,7 @@ import {
   TitleContain
 } from '../style';
 
-class Body extends Component {
+class Body extends PureComponent {
   render() {
     return (
       <InfoWrapper>
@@ -25,4 +25,4 @@ const mapState = (state) => ({
   list: state.getIn(['home', 'cartoonList'])
 })
 
-export default connect(mapState, null)(Body);
+export default connect(mapState)(Body);

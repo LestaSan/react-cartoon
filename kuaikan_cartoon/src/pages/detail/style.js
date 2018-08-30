@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const DetailContainer = styled.div`
+export const DetailContainer = styled.div`;
   width: 1140px;
   margin: 0 auto;
   margin-top: 30px;
@@ -9,14 +9,14 @@ export const DetailContainer = styled.div`
   background: #fff;
 `;
 
-export const CartoonInfo = styled.div`
+export const CartoonInfo = styled.div`;
   overflow: hidden;
   padding: 14px 24px;
   margin-top: 16px;
   box-sizing: border-box;
 `;
 
-export const LeftBlock = styled.div`
+export const LeftBlock = styled.div`;
   float: left;
   width: 340px;
   height: 212px;
@@ -30,24 +30,24 @@ export const LeftBlock = styled.div`
   }
 `;
 
-export const RightBlock = styled.div`
+export const RightBlock = styled.div`;
   position: relative;
   margin-left: 380px;
 `;
 
-export const Title = styled.div`
+export const Title = styled.div`;
   color: #333;
   font-size: 18px;
   padding-top: 4px;
   font-weight: 400;
 `;
 
-export const Author = styled.div`
+export const Author = styled.div`;
   color: #bfbfbf;
   font-size: 14px;
 `;
 
-export const Description = styled.div`
+export const Description = styled.div`;
   color: #666;
   font-size: 14px;
   margin-top: 10px;
@@ -62,7 +62,7 @@ export const Description = styled.div`
   }
 `;
 
-export const OtherContent = styled.div`
+export const OtherContent = styled.div`;
   position: absolute;
   top: 168px;
   font-weight: 400;
@@ -74,7 +74,7 @@ export const OtherContent = styled.div`
   }
 `;
 
-export const FirstInfo = styled.div`
+export const FirstInfo = styled.div`;
   width: 100px;
   line-height: 34px;
   background: #ffd704;
@@ -91,7 +91,7 @@ export const FirstInfo = styled.div`
   }
 `;
 
-export const Follow = styled.div`
+export const Follow = styled.div`;
   width: 100px;
   margin-left: 20px;
   line-height: 34px;
@@ -109,13 +109,13 @@ export const Follow = styled.div`
   }
 `;
 
-export const Nav = styled.div`
+export const Nav = styled.div`;
   float: right;
   padding-left: 80px;
   padding-top: 12px;
 `;
 
-export const Box = styled.div`
+export const Box = styled.div`;
   display: inline-block;
   color: #666;
   font-weight: 400;
@@ -125,21 +125,21 @@ export const Box = styled.div`
   }
 `;
 
-export const ListWrapper = styled.div`
+export const ListWrapper = styled.div`;
   padding: 14px 24px;
   margin-top: 16px;
 `;
 
-export const ListTable = styled.div`
+export const ListTable = styled.div`;
   width: 100%;
   margin-bottom: 20px;
 `;
 
-export const ListItem = styled.div`
+export const ListItem = styled.div`;
   border-top: 1px solid #ddd;
 `;
 
-export const ItemBox = styled.div`
+export const ItemBox = styled.div`;
   display: inline-block;
   padding: 16px 0;
   text-align: center;
@@ -200,4 +200,4 @@ export const ItemBox = styled.div`
     border-radius: 2px;
     border: 1px solid #e5e5e;
   }
-`
+`;

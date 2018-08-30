@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import {
   ListWrapper,
   ListTable,
@@ -6,7 +6,7 @@ import {
   ItemBox
 } from '../style';
 
-class ItemList extends Component {
+class ItemList extends PureComponent {
   constructor(props) {
     super(props)
     this.list = props.list;
@@ -17,23 +17,22 @@ class ItemList extends Component {
         <ListTable>
           {
             this.list.map(item => {
-              return (
+              return 
                 <ListItem key={item.id}>
-            <ItemBox className="one">
-              <div className="img-box">
-                <img src={item.imgUrl} alt=""/>
-              </div>
-            </ItemBox >
-            <ItemBox className="two">
-              <p>{item.title}</p>
-            </ItemBox>
-            <ItemBox className="three">
-              <i className="iconfont">&#xe668;</i>
-              {item.praise}
-            </ItemBox>
-            <ItemBox className="four">{item.date}</ItemBox>
-          </ListItem>
-              )
+                  <ItemBox className="one">
+                    <div className="img-box">
+                      <img src={item.imgUrl} alt="" />
+                    </div>
+                  </ItemBox>
+                  <ItemBox className="two">
+                    <p>{item.title}</p>
+                  </ItemBox>
+                  <ItemBox className="three">
+                    <i className="iconfont">&#xe668;</i>
+                    {item.praise}
+                  </ItemBox>
+                  <ItemBox className="four">{item.date}</ItemBox>
+                </ListItem>
             })
           }
         </ListTable>

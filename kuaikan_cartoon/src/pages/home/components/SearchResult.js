@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {  PureComponent } from 'react';
 import SearchContain from './SearchContain';
 import { actionCreators } from '../store';
 import { connect } from 'react-redux';
@@ -7,7 +7,7 @@ import {
   TitleContain
 } from '../style';
 
-class SearchResult extends Component {
+class SearchResult extends PureComponent {
   render() {
     const { handleClosed, isShowed } = this.props;
     return (
@@ -39,6 +39,6 @@ const mapDispatch = (dispatch) => ({
   handleClosed() {
     dispatch(actionCreators.handleClosed())
   }
-})
+});
 
 export default connect(mapState, mapDispatch)(SearchResult);

@@ -1,14 +1,15 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 import { connect } from "react-redux";
 import { Container, ListItem, PicBox, DescBox, Praise } from "../style";
 
-class SearchContain extends Component {
+class SearchContain extends PureComponent {
   render() {
     const resultList = this.props.resultList.toJS();
     return (
       <Container>
-        {resultList.map(item => {
-          return (
+        {
+          resultList.map(item => {
+            return (
               <ListItem key={item.id} className="search-box">
                 <PicBox>
                   <div className="search-container">
@@ -27,8 +28,9 @@ class SearchContain extends Component {
                   </Praise>
                 </DescBox>
               </ListItem>
-          )
-        })}
+            )
+          })
+        }
       </Container>
     );
   }

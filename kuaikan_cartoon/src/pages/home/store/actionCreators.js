@@ -16,9 +16,9 @@ const setSearchInfo = (info, list) => ({
 const setResultList = (list, value) => ({
   type: actionTypes.SET_RESULT_LIST,
   list: fromJS(list),
-  value,
-  isShowed: true
-})
+  isShowed: true,
+  value
+});
 
 export const getCartoonList = () => {
   return dispatch => {
@@ -27,6 +27,9 @@ export const getCartoonList = () => {
         const result = res.data.data;
         const action = setCartoonList(result);
         dispatch(action);
+      })
+      .catch(err => {
+        alert('请求home数据出错')
       })
   }
 };
@@ -56,4 +59,4 @@ export const compareId = (list, infoList, value) => {
 export const handleClosed = () => ({
   type: actionTypes.CLOSED,
   isShowed: false
-})
+});
