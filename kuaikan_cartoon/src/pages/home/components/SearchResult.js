@@ -12,7 +12,7 @@ class SearchResult extends Component {
       <InfoWrapper>
         <TitleContain>
             <h2 className="title">
-              <i >关键词<i>《{this.props.value}》</i>的搜索：</i>
+              <i >关键词《<i className="keyword">{this.props.value}</i>》的搜索：</i>
             </h2>
         </TitleContain>
         <SearchContain/>

@@ -104,6 +104,9 @@ export const TitleContain = styled.div`
       line-height: 20px;
       background: url(${TitleIcon}) no-repeat;
     }
+    .keyword {
+      color: #fed631;
+    }
   }
 `;
 
