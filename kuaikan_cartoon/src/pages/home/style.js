@@ -117,13 +117,18 @@ export const ListItem = styled.div`
   display: inline-block;
   margin: 10px 6px;
   box-sizing: border-box;
+  &.search-box {
+    width: 206px;
+  }
 `;
 
 export const PicBox = styled.div`
-  width: 163px;
   width: 100%;
   box-sizing: border-box;
   cursor: pointer;
+  .search-container {
+    height: 274px;
+  }
   &:hover {
     .cartoon-title {
       color: #fed631;
@@ -162,6 +167,45 @@ export const PicBox = styled.div`
       display: block;
       width: 260px;
       height: 163px;
+      padding: 1px;
+      margin-bottom: 10px;
+      border: 1px solid #eee;
+      box-sizing: border-box;
+      cursor: pointer;
+      transition: all .2s ease-in;
+      transform: translateY(0);
+      z-index: 20;
+      &.search-item-pic {
+        width: 100%;
+        height: 100%
+      }
+    }
+  }
+  .search-container {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    &:hover {
+      p + img {
+        transition: all .2s ease-in;
+        transform: translateY(-6px);
+        border: 1px solid #fed631;
+      }
+    }
+    .high-light {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 20;
+      &:hover {
+        background-color: rgba(255,255,255,.3)
+      }
+    }
+    .search-item-pic {
+      width: 100%;
+      height: 100%
       padding: 1px;
       margin-bottom: 10px;
       border: 1px solid #eee;

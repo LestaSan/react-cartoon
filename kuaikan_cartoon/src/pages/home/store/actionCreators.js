@@ -11,6 +11,12 @@ const setSearchInfo = (info, list) => ({
   type: actionTypes.SET_SEARCH_INFO,
   info: fromJS(info),
   list: fromJS(list)
+});
+
+const setResultList = (list, value) => ({
+  type: actionTypes.SET_RESULT_LIST,
+  list: fromJS(list),
+  value
 })
 
 export const getCartoonList = () => {
@@ -31,5 +37,17 @@ export const getSearchInfo = () => {
       const allList = res.data.data.allList;
       dispatch(setSearchInfo(mainInfo, allList));
     })
+  }
+};
+
+export const compareId = (list, infoList, value) => {
+  return dispatch => {
+    const resultList = []; 
+    for(let i = 0; i < infoList.length; i++) {
+      if(list.indexOf(infoList[i].id) >= 0) {
+        resultList.push(infoList[i])
+      }
+    }
+    dispatch(setResultList(resultList, value))
   }
 }

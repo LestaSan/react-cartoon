@@ -4,7 +4,9 @@ import * as actionTypes from './actionTypes';
 const defaultState = fromJS({
   cartoonList: [],
   mainInfo: [],
-  allList: []
+  allList: [],
+  resultList: [],
+  inputValue: ''
 });
 
 export default (state = defaultState, action) => {
@@ -15,6 +17,11 @@ export default (state = defaultState, action) => {
       return state.merge({
         mainInfo: action.info,
         allList: action.list
+      });
+    case actionTypes.SET_RESULT_LIST:
+      return state.merge({
+        resultList: action.list,
+        inputValue: action.value
       })
     default: return state;
   }

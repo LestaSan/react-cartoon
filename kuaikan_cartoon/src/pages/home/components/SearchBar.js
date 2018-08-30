@@ -24,32 +24,32 @@ class SearchBar extends Component {
     this.props.getSearchInfo()
   }
   test() {
-    // const { cartoonList } = this.props;
-    const list = this.props.cartoonList.toJS();
-    // const list = cartoonList.toJS();
-    // const MainInfo = cartoonList.value;
-    const newList = [];
-    for(let i = 0; i < list.length; i++) {
-      newList.push(list[i].value)
-    }
-    console.log(newList)
+    const list = this.props.mainInfo.toJS();
+    const infoList = this.props.allList.toJS();
+    const idList = [];
     if(this.input.value) {
       for(let i = 0; i < list.length; i++) {
-        if(newList[i].indexOf(this.input.value)) {
-          alert('contain')
+        const value = list[i].value;
+        if(value.indexOf(this.input.value) >= 0) {
+          idList.push(list[i].id)
         }
       }
     }
+    this.props.compareId(idList, infoList, this.input.value)
   }
 }
 
 const mapState = (state) => ({
-  cartoonList: state.getIn(['home', 'cartoonList'])
+  mainInfo: state.getIn(['home', 'mainInfo']),
+  allList: state.getIn(['home', 'allList'])
 });
 
 const mapDispatch = (dispatch) => ({
   getSearchInfo() {
     dispatch(actionCreators.getSearchInfo())
+  },
+  compareId(list, infoList, value) {
+    dispatch(actionCreators.compareId(list, infoList, value))
   }
 })
 
