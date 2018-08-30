@@ -17,7 +17,7 @@ class ItemList extends PureComponent {
         <ListTable>
           {
             this.list.map(item => {
-              return 
+              return (
                 <ListItem key={item.id}>
                   <ItemBox className="one">
                     <div className="img-box">
@@ -33,6 +33,7 @@ class ItemList extends PureComponent {
                   </ItemBox>
                   <ItemBox className="four">{item.date}</ItemBox>
                 </ListItem>
+              );
             })
           }
         </ListTable>

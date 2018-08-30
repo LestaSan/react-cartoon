@@ -1,4 +1,4 @@
-import React, {  PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import SearchContain from './SearchContain';
 import { actionCreators } from '../store';
 import { connect } from 'react-redux';

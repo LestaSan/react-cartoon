@@ -6,13 +6,13 @@ import { Link } from 'react-router-dom';
 
 class ListContain extends PureComponent {
   render() {
-    const cartoonList = this.props.cartoonList.toJS();
+    const List = this.props.cartoonList.toJS();
     return (
       <Container>
         {
-          cartoonList.map(list => {
+          List.map(list => {
             const item = list.mainContent;
-            return 
+            return (
               <Link to={{ pathname: `/detail/${item.id}/`, state: { data: list } }} key={item.id}>
                 <ListItem>
                   <PicBox>
@@ -33,6 +33,7 @@ class ListContain extends PureComponent {
                   </DescBox>
                 </ListItem>
               </Link>
+            );
           })
         }
       </Container>
@@ -49,8 +50,7 @@ const mapState = state => ({
 
 const mapDispatch = dispatch => ({
   getCartoonList() {
-    const action = actionCreators.getCartoonList();
-    dispatch(action);
+    dispatch(actionCreators.getCartoonList());
   }
 });
 
