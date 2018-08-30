@@ -117,7 +117,7 @@ export const LoginContent = styled.div`
 export const Login = styled.div`
   position: absolute;
   left: 116px;
-  bottom: 140px;
+  bottom: 120px;
   width: 200px;
   height: 44px;
   color: #333;
