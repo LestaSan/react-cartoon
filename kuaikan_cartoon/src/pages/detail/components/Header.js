@@ -22,8 +22,8 @@ class Header extends Component {
     this.list = props.list.mainContent;
   }
   render() {
-    const { followCartoon, cancleFollowed, isFollowed, isLogin, followItem, id } = this.props;
-    this.newFollowItem = followItem.toJS();
+    const { followCartoon, cancleFollowed, isLogin, followItem, id } = this.props;
+    this.followItem = followItem.toJS();
     return (
         <CartoonInfo>
           <LeftBlock>
@@ -41,9 +41,19 @@ class Header extends Component {
             <OtherContent>
               <FirstInfo className="btn other">查看第一话</FirstInfo>
               {
-                isFollowed && isLogin && this.getId(this.newFollowItem, this.list.id) ? 
-                <Follow className="btn other" onClick={() => cancleFollowed(this.list.id, this.newFollowItem)}>取消关注</Follow> :
-                <Follow className="btn other" onClick={() => followCartoon(this.props.list, this.list.id, isLogin)}>关注</Follow>
+                isLogin && this.checkFollowed(this.followItem, this.list.id) ? 
+                <Follow 
+                  className="btn other" 
+                  onClick={() => cancleFollowed(this.list.id, this.followItem)}
+                >
+                  取消关注
+                </Follow> :
+                <Follow 
+                  className="btn other"
+                  onClick={() => followCartoon(this.props.list, this.list.id, isLogin)}
+                >
+                  关注
+                </Follow>
               }
               <Nav className="other">
                 <Box>
@@ -64,20 +74,16 @@ class Header extends Component {
         </CartoonInfo>
     );
   }
-  getId(newList, id)  {
+  checkFollowed(newList, id)  {
     const arr = [];
     for(let i = 0; i < newList.length; i ++) {
       arr.push(newList[i].id)
     }
-    for(let i = 0; i < arr.length; i++)
-      if(arr[i] === id) {
-        return true
-      }
+    if(arr.indexOf(id) >= 0) return true
   }
 }
 
 const mapState = (state) => ({
-  isFollowed: state.getIn(['detail', 'isFollowed']),
   followItem: state.getIn(['detail', 'followItem']),
   id: state.getIn(['detail', 'id']),
   isLogin: state.getIn(['login', 'isLogin']),

@@ -86,7 +86,7 @@ export const FollowInfo = styled.div`
   right: 30px;
   width: 430px;
   height: 510px;
-  overflow: hidden;
+  overflow: scroll;
   background: #333;
   z-index: 999;
 ` 
