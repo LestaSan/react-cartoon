@@ -14,7 +14,7 @@ class SearchBar extends Component {
         <div className="search">
           <p className="search-icon"/>
           <Search innerRef={(icon) => {this.input = icon}}/>
-          <SearchButton onClick={this.test.bind(this)}/>
+          <SearchButton onClick={this.searchInfo.bind(this)}/>
         </div>
         <p className="s-img" />
       </NavSearch>
@@ -23,7 +23,7 @@ class SearchBar extends Component {
   componentDidMount() {
     this.props.getSearchInfo()
   }
-  test() {
+  searchInfo() {
     const list = this.props.mainInfo.toJS();
     const infoList = this.props.allList.toJS();
     const idList = [];
@@ -34,6 +34,8 @@ class SearchBar extends Component {
           idList.push(list[i].id)
         }
       }
+    } else {
+      alert('请输入关键词哦~')
     }
     this.props.compareId(idList, infoList, this.input.value)
   }

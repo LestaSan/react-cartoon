@@ -3,6 +3,7 @@ import BackPic_1 from '../../statics/background1.png';
 import BackPic_2 from '../../statics/background2.png';
 import Search_icon from '../../statics/search.png';
 import TitleIcon from '../../statics/title_icon.png';
+import CloseIcon from '../../statics/close.png';
 
 
 export const HomeContainer = styled.div`
@@ -91,6 +92,7 @@ export const InfoWrapper = styled.div`
 `;
 
 export const TitleContain = styled.div`
+  position: relative;
   padding: 12px;
   background: #fbfbfb;
   border-top-left-radius: 6px;
@@ -107,6 +109,15 @@ export const TitleContain = styled.div`
     .keyword {
       color: #fed631;
     }
+  }
+  .close {
+    position: absolute;
+    right: 20px;
+    top: 8px;
+    width: 24px;
+    height: 24px;
+    background: url(${CloseIcon}) no-repeat;
+    cursor: pointer;
   }
 `;
 

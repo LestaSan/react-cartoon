@@ -16,7 +16,8 @@ const setSearchInfo = (info, list) => ({
 const setResultList = (list, value) => ({
   type: actionTypes.SET_RESULT_LIST,
   list: fromJS(list),
-  value
+  value,
+  isShowed: true
 })
 
 export const getCartoonList = () => {
@@ -50,4 +51,9 @@ export const compareId = (list, infoList, value) => {
     }
     dispatch(setResultList(resultList, value))
   }
-}
+};
+
+export const handleClosed = () => ({
+  type: actionTypes.CLOSED,
+  isShowed: false
+})

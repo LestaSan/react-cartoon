@@ -6,7 +6,8 @@ const defaultState = fromJS({
   mainInfo: [],
   allList: [],
   resultList: [],
-  inputValue: ''
+  inputValue: '',
+  isShowed: true
 });
 
 export default (state = defaultState, action) => {
@@ -21,8 +22,11 @@ export default (state = defaultState, action) => {
     case actionTypes.SET_RESULT_LIST:
       return state.merge({
         resultList: action.list,
-        inputValue: action.value
-      })
+        inputValue: action.value,
+        isShowed: action.isShowed
+      });
+    case actionTypes.CLOSED:
+      return state.set('isShowed', action.isShowed)
     default: return state;
   }
 }

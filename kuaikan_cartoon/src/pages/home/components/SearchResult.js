@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import SearchContain from './SearchContain';
+import { actionCreators } from '../store';
 import { connect } from 'react-redux';
 import {
   InfoWrapper,
@@ -8,21 +9,36 @@ import {
 
 class SearchResult extends Component {
   render() {
+    const { handleClosed, isShowed } = this.props;
     return (
-      <InfoWrapper>
-        <TitleContain>
-            <h2 className="title">
-              <i >关键词《<i className="keyword">{this.props.value}</i>》的搜索：</i>
-            </h2>
-        </TitleContain>
-        <SearchContain/>
-      </InfoWrapper>
+      <div>
+        {
+          isShowed && this.props.value ? 
+          <InfoWrapper>
+            <TitleContain>
+              <h2 className="title">
+                <i >关键词《<i className="keyword">{this.props.value}</i>》的搜索：</i>
+              </h2>
+              <div className="close" onClick={handleClosed}/>
+            </TitleContain>
+            <SearchContain/>
+          </InfoWrapper> :
+          null
+        }
+      </div>
     );
   }
 }
 
 const mapState = (state) => ({
-  value: state.getIn(['home', 'inputValue'])
+  value: state.getIn(['home', 'inputValue']),
+  isShowed: state.getIn(['home', 'isShowed'])
+});
+
+const mapDispatch = (dispatch) => ({
+  handleClosed() {
+    dispatch(actionCreators.handleClosed())
+  }
 })
 
-export default connect(mapState)(SearchResult);
+export default connect(mapState, mapDispatch)(SearchResult);
