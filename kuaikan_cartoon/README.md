@@ -2,15 +2,16 @@
 
 ## 简介 
 - 简单React项目，实现“登录/退出”、“关注/取关”、“关键词搜索”等功能。
-- 如果对您有帮助的话请star一下吧( • ̀ω•́ )✧
-<br><br>
+- 如果对您有帮助的话请star一下( • ̀ω•́ )✧
+<br>
 ## 启动
 进入kuaikan_cartoon目录
 
     npm cache clean --force
     npm install
     yarn start
-<br><br>
+<br>
+
 ## 动图预览
 ![](https://user-gold-cdn.xitu.io/2018/8/30/1658963641b2aefa?imageslim)
 <br><br><br>
