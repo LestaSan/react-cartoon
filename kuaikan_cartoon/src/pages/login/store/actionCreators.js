@@ -12,7 +12,9 @@ export const getLoginState = (account) => {
     axios.get('/api/login.json').then(res => {
       const result = res.data.data;
       dispatch(changeLoginState(result, account))
-    })
+    }).catch(err => (
+      console.log('请求登录状态出错')
+    ))
   }
 };
 
